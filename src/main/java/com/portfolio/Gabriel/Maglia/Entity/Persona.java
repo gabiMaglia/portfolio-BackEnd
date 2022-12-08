@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Getter @Setter
 @Entity
@@ -16,12 +17,22 @@ public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String nombre;
+    private String name_persona;
+
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String apellido;
+    private String surname_persona;
+
+    @NotNull
+    private Long dni_persona;
+
+    @NotNull
+    private Long telephone_persona;
+
     @Size(min = 1, max = 1000, message = "No cumple con la longitud")
-    private String img;
+    private String photo_url;
+
 }
