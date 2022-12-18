@@ -25,7 +25,6 @@ public class Skills {
     @NotNull
     private String name;
 
-    @NotNull
     private Integer amount;
 
 }
