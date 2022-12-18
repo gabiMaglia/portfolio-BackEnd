@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+
 
 @Getter @Setter
 @Entity
@@ -34,5 +34,17 @@ public class Persona {
 
     @Size(min = 1, max = 1000, message = "No cumple con la longitud")
     private String photo_url;
+
+    @NotNull
+    private String main_phrase;
+
+    @NotNull
+    private String phrase1;
+
+    @NotNull
+    private String phrase2;
+
+    @NotNull
+    private  String phrase3;
 
 }
