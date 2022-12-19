@@ -1,4 +1,4 @@
-package com.portfolio.Gabriel.Maglia.Auth.models;
+package com.portfolio.Gabriel.Maglia.Auth.entity;
 
 
 import org.springframework.security.core.GrantedAuthority;

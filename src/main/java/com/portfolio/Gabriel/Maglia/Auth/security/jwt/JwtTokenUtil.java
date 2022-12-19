@@ -1,7 +1,7 @@
 package com.portfolio.Gabriel.Maglia.Auth.security.jwt;
 
 
-import com.portfolio.Gabriel.Maglia.Auth.models.User;
+import com.portfolio.Gabriel.Maglia.Auth.entity.User;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

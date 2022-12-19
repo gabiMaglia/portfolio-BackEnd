@@ -1,6 +1,6 @@
 package com.portfolio.Gabriel.Maglia.Auth.repository;
 
-import com.portfolio.Gabriel.Maglia.Auth.models.User;
+import com.portfolio.Gabriel.Maglia.Auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

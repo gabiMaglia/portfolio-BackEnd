@@ -1,6 +1,6 @@
 package com.portfolio.Gabriel.Maglia.Auth.security;
 
-import com.portfolio.Gabriel.Maglia.Auth.models.User;
+import com.portfolio.Gabriel.Maglia.Auth.entity.User;
 import com.portfolio.Gabriel.Maglia.Auth.security.jwt.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
