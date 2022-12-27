@@ -14,24 +14,24 @@ public class ExperienceController {
     @Autowired
     IExperienceService experienceService;
 
-    @GetMapping("/experience/traer")
+    @GetMapping("/get/experience")
     public List<Experience> getExperience () {
         return experienceService.getExperience();
     }
 
-    @PostMapping("/experience/crear")
+    @PostMapping("/add/experience")
     public String createExperience(@RequestBody Experience experience){
         experienceService.saveExperience(experience);
         return "La Experience fue creada satisfactoriamente";
     }
 
-    @DeleteMapping("/experience/borrar/{id}")
+    @DeleteMapping("/delete/experience/{id}")
     public String deleteExperience(@PathVariable Long id){
         experienceService.deleteExperience(id);
         return "La Experience fue eliminada correctamente";
     }
 
-    @PutMapping("/experience/editar/{id}")
+    @PutMapping("/edit/experience/{id}")
     public Experience editExperience(@PathVariable Long id,
                                      @RequestParam ("title_exp") String newTitle,
                                      @RequestParam ("institution_exp") String newInst ,

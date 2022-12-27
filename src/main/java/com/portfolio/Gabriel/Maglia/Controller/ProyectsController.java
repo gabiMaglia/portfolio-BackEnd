@@ -15,24 +15,24 @@ public class ProyectsController {
     @Autowired
     IProyectsService proyectsService;
 
-    @GetMapping("/pro/traer")
+    @GetMapping("/get/pro")
     public List<Proyects> getProyects () {
         return proyectsService.getProyect();
     }
 
-    @PostMapping("/pro/crear")
+    @PostMapping("/add/pro")
     public String createProyects(@RequestBody Proyects proyects){
         proyectsService.saveProyect(proyects);
         return "La Proyects fue creada satisfactoriamente";
     }
 
-    @DeleteMapping("/pro/borrar/{id}")
+    @DeleteMapping("/delete/pro/{id}")
     public String deleteProyects(@PathVariable Long id){
         proyectsService.deleteProyect(id);
         return "La Proyects fue eliminada correctamente";
     }
 
-    @PutMapping("/pro/editar/{id}")
+    @PutMapping("/edit/pro/{id}")
     public Proyects editProyects(@PathVariable Long id,
                                      @RequestParam ("title_pro") String newTitle,
                                      @RequestParam ("technologies_pro") String newTech ,

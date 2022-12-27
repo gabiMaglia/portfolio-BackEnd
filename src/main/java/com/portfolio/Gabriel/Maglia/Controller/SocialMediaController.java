@@ -13,21 +13,21 @@ public class SocialMediaController {
     @Autowired
     ISocialMediaService isocialMediaService;
 
-    @GetMapping("/social/traer")
+    @GetMapping("/get/social")
     public List<SocialMedia> getSocialMedia () {
         return isocialMediaService.getSocialMedia();
     }
-    @PostMapping("/social/crear")
+    @PostMapping("/add/social")
     public String createSocialMedia(@RequestBody SocialMedia socialMedia){
         isocialMediaService.saveSocialMedia(socialMedia);
         return "La SocialMedia fue creada satisfactoriamente";
     }
-    @DeleteMapping("/social/borrar/{id}")
+    @DeleteMapping("/delete/social/{id}")
     public String deleteSocialMedia(@PathVariable Long id){
         isocialMediaService.deleteSocialMedia(id);
         return "La SocialMedia fue eliminada correctamente";
     }
-    @PutMapping("/social/editar/{id}")
+    @PutMapping("/edit/social/{id}")
     public SocialMedia editSocialMedia(@PathVariable Long id,
                                @RequestParam("facebook") String newFacebook,
                                @RequestParam("e_mail") String newEmail,

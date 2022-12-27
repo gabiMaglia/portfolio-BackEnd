@@ -14,21 +14,21 @@ public class SkillsController {
     @Autowired
     ISkillsService skillsService;
 
-    @GetMapping("/skill/traer")
+    @GetMapping("get/skill")
     public List<Skills> getSocialMedia () {
         return skillsService.getSkill();
     }
-    @PostMapping("/skill/crear")
+    @PostMapping("/add/skill")
     public String createSocialMedia(@RequestBody Skills skill){
         skillsService.saveSkill(skill);
         return "La SocialMedia fue creada satisfactoriamente";
     }
-    @DeleteMapping("/skill/borrar/{id}")
+    @DeleteMapping("/delete/skill/{id}")
     public String deleteSocialMedia(@PathVariable Long id){
         skillsService.deleteSkill(id);
         return "La SocialMedia fue eliminada correctamente";
     }
-    @PutMapping("/skill/editar/{id}")
+    @PutMapping("/edit/skill/{id}")
     public Skills editSkill(@PathVariable Long id,
                                        @RequestParam("type") String newType,
                                        @RequestParam("img_skill") String newImg,

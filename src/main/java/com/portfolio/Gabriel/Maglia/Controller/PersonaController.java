@@ -12,21 +12,21 @@ import java.util.List;
 public class PersonaController {
     @Autowired
     IPersonaService ipersonaservice;
-    @GetMapping("/persona/traer")
+    @GetMapping("/get/persona")
     public List<Persona> getPersona () {
         return ipersonaservice.getPersona();
     }
-    @PostMapping("/persona/crear")
+    @PostMapping("/add/persona")
     public String createPersona(@RequestBody Persona persona){
         ipersonaservice.savePersona(persona);
         return "La persona fue creada satisfactoriamente";
     }
-    @DeleteMapping("/persona/borrar/{id}")
+    @DeleteMapping("/delete/persona/{id}")
     public String deletePersona(@PathVariable Long id){
             ipersonaservice.deletePersona(id);
         return "La Persona fue eliminada correctamente";
     }
-    @PutMapping("/persona/editar/{id}")
+    @PutMapping("/edit/persona/{id}")
     public Persona editPersona(@PathVariable Long id,
                                @RequestParam("name_persona") String newNombre,
                                @RequestParam("surname_persona") String newApellido,
