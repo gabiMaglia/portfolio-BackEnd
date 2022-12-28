@@ -39,7 +39,7 @@ public class StudiesController {
 
     @PutMapping ("/edit/studies/{id}")
     public ResponseEntity<Studies> editStudie(@PathVariable("id") Long id,
-                              @RequestBody Map<String, String> body){
+                                              @RequestBody Map<String, String> body){
         Studies studie = studiesService.findStudies(id);
         studie.setTitle_st(body.get("title_st"));
         studie.setInstitution_st(body.get("institution_st"));
@@ -47,6 +47,7 @@ public class StudiesController {
         studie.setEndDate_st(body.get("endDate_st"));
         studie.setDescription_st(body.get("description_st"));
         studie.setImg_st(body.get("img_st"));
+
         studiesService.saveStudies(studie);
         return new ResponseEntity<>(studie, HttpStatus.OK);
 

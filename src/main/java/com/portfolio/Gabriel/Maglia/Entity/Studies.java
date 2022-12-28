@@ -26,13 +26,13 @@ public class Studies {
     @NotNull
     private String startDate_st;
 
-    @NotNull
+
     private String endDate_st;
 
     @NotNull
     private String description_st;
 
-    @NotNull
+
     private String img_st;
 
     @NotNull

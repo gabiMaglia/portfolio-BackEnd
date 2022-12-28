@@ -21,19 +21,19 @@ public class Experience {
     @NotNull
     private String institution_exp;
 
-    @NotNull
+
     private Boolean isActualJob_exp;
 
     @NotNull
     private String startDate_exp;
 
-    @NotNull
+
     private String endDate_exp;
 
     @NotNull
     private String description_exp;
 
-    @NotNull
+
     private String img_exp;
 
     @NotNull
