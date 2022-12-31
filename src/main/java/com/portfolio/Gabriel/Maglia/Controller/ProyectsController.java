@@ -4,9 +4,12 @@ package com.portfolio.Gabriel.Maglia.Controller;
 import com.portfolio.Gabriel.Maglia.Entity.Proyects;
 import com.portfolio.Gabriel.Maglia.Interface.IProyectsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localHost:4200")
@@ -21,37 +24,30 @@ public class ProyectsController {
     }
 
     @PostMapping("/add/pro")
-    public String createProyects(@RequestBody Proyects proyects){
+    public ResponseEntity<Proyects> createProyects(@RequestBody Proyects proyects){
         proyectsService.saveProyect(proyects);
-        return "La Proyects fue creada satisfactoriamente";
+        return new ResponseEntity<>(proyects, HttpStatus.CREATED );
     }
 
     @DeleteMapping("/delete/pro/{id}")
-    public String deleteProyects(@PathVariable Long id){
+    public ResponseEntity<?> deleteProyects(@PathVariable Long id){
         proyectsService.deleteProyect(id);
-        return "La Proyects fue eliminada correctamente";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/edit/pro/{id}")
-    public Proyects editProyects(@PathVariable Long id,
-                                     @RequestParam ("title_pro") String newTitle,
-                                     @RequestParam ("technologies_pro") String newTech ,
-                                     @RequestParam ("deployLink_pro") String newDply,
-                                     @RequestParam ("githubLink_pro") String newGthb ,
-                                     @RequestParam ("img1_pro") String newImg1 ,
-                                     @RequestParam ("img2_pro") String newImg2 ,
-                                     @RequestParam ("img3_pro") String newImg3 ,
-                                     @RequestParam ("description_pro") String newDesc)
+    public Proyects editProyects(@PathVariable ("id") Long id,
+                                 @RequestBody Map<String, String> body)
                                      {
         Proyects proyects = proyectsService.findProyects(id);
-        proyects.setTitle_pro(newTitle);
-        proyects.setTechnologies_pro(newTech);
-        proyects.setDeployLink_pro(newDply);
-        proyects.setGithubLink_pro(newGthb);
-        proyects.setDescription_pro(newDesc);
-        proyects.setImg1_pro(newImg1);
-        proyects.setImg2_pro(newImg2);
-        proyects.setImg3_pro(newImg3);
+        proyects.setTitle_pro(body.get("title_pro"));
+        proyects.setTechnologies_pro(body.get("technologies_pro"));
+        proyects.setDeployLink_pro(body.get("deploy_link_pro"));
+        proyects.setGithubLink_pro(body.get("github_link_pro"));
+        proyects.setDescription_pro(body.get("description_pro"));
+        proyects.setImg1_pro(body.get("img1_pro"));
+        proyects.setImg2_pro(body.get("img2_pro"));
+        proyects.setImg3_pro(body.get("img3_pro"));
 
 
         return proyects;

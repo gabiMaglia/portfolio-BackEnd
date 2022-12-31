@@ -32,7 +32,8 @@ public class Persona {
     @NotNull
     private Long telephone_persona;
 
-    @Size(min = 1, max = 1000, message = "No cumple con la longitud")
+
+
     private String photo_url;
 
     @NotNull

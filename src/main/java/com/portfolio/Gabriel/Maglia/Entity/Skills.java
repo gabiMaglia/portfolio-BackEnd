@@ -25,6 +25,13 @@ public class Skills {
     @NotNull
     private String name;
 
+    @NotNull
     private Integer amount;
+
+    @NotNull
+    private Long persona_id;
+
+    @NotNull
+    private Long persona_DNI_persona;
 
 }

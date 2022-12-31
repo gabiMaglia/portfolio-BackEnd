@@ -19,18 +19,22 @@ public class PersonaController {
     }
 
     @PutMapping("/edit/persona/{id}")
+
     public Persona editPersona(@PathVariable Long id,
                                @RequestBody Map<String, String> body) {
+        System.out.println("llegaa");
+
         Persona persona = ipersonaservice.findPersona(id);
+
         persona.setName_persona(body.get("name_persona"));
         persona.setSurname_persona(body.get("surname_persona"));
         persona.setDni_persona(Long.valueOf(body.get("dni_persona")));
         persona.setTelephone_persona(Long.valueOf(body.get("telephone_persona")));
         persona.setPhoto_url(body.get("photo_url"));
         persona.setMain_phrase(body.get("main_phrase"));
-        persona.setPhrase1(body.get("phraser1"));
-        persona.setPhrase2(body.get("phraser2"));
-        persona.setPhrase3(body.get("phraser3"));
+        persona.setPhrase1(body.get("phrase1"));
+        persona.setPhrase2(body.get("phrase2"));
+        persona.setPhrase3(body.get("phrase3"));
 
         ipersonaservice.savePersona(persona);
         return persona;

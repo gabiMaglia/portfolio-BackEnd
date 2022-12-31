@@ -43,6 +43,12 @@ public class Proyects {
 
     private  String img3_pro;
 
+    @NotNull
+    private Long persona_id;
+
+    @NotNull
+    private Long persona_DNI_persona;
+
 
 
 }
