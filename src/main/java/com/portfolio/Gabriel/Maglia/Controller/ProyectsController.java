@@ -42,12 +42,14 @@ public class ProyectsController {
         Proyects proyects = proyectsService.findProyects(id);
         proyects.setTitle_pro(body.get("title_pro"));
         proyects.setTechnologies_pro(body.get("technologies_pro"));
-        proyects.setDeployLink_pro(body.get("deploy_link_pro"));
-        proyects.setGithubLink_pro(body.get("github_link_pro"));
+        proyects.setDeployLink_pro(body.get("deployLink_pro"));
+        proyects.setGithubLink_pro(body.get("githubLink_pro"));
         proyects.setDescription_pro(body.get("description_pro"));
         proyects.setImg1_pro(body.get("img1_pro"));
         proyects.setImg2_pro(body.get("img2_pro"));
         proyects.setImg3_pro(body.get("img3_pro"));
+
+        proyectsService.saveProyect(proyects);
 
 
         return proyects;
