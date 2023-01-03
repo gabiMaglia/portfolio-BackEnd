@@ -11,8 +11,6 @@ public interface ISocialMediaService {
     //Guardar Objeto
     public void saveSocialMedia(SocialMedia socialMedia);
 
-    //Eliminar
-    public void deleteSocialMedia(Long id);
 
     //Buscar
     public SocialMedia findSocialMedia(Long id);

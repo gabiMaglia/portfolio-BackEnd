@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localHost:4200")
@@ -17,30 +18,17 @@ public class SocialMediaController {
     public List<SocialMedia> getSocialMedia () {
         return isocialMediaService.getSocialMedia();
     }
-    @PostMapping("/add/social")
-    public String createSocialMedia(@RequestBody SocialMedia socialMedia){
-        isocialMediaService.saveSocialMedia(socialMedia);
-        return "La SocialMedia fue creada satisfactoriamente";
-    }
-    @DeleteMapping("/delete/social/{id}")
-    public String deleteSocialMedia(@PathVariable Long id){
-        isocialMediaService.deleteSocialMedia(id);
-        return "La SocialMedia fue eliminada correctamente";
-    }
+
     @PutMapping("/edit/social/{id}")
-    public SocialMedia editSocialMedia(@PathVariable Long id,
-                               @RequestParam("facebook") String newFacebook,
-                               @RequestParam("e_mail") String newEmail,
-                               @RequestParam("instagram") String newInstagram,
-                               @RequestParam("linkedin")String newLinkedin,
-                               @RequestParam("github") String newGithub)
+    public SocialMedia editSocialMedia(@PathVariable ("id") Long id,
+                                       @RequestBody Map<String, String> body)
                                {
         SocialMedia socialMedia =  isocialMediaService.findSocialMedia(id);
-        socialMedia.setInstagram(newInstagram);
-        socialMedia.setFacebook(newFacebook);
-        socialMedia.setLinkedin(newLinkedin);
-        socialMedia.setGithub(newGithub);
-        socialMedia.setE_mail(newEmail);
+        socialMedia.setInstagram(body.get("instagram"));
+        socialMedia.setFacebook(body.get("facebook"));
+        socialMedia.setLinkedin(body.get("linkedin"));
+        socialMedia.setGithub(body.get("github"));
+        socialMedia.setGmail(body.get("gmail"));
         isocialMediaService.saveSocialMedia(socialMedia);
         return socialMedia;
     }

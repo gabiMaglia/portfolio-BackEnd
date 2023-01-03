@@ -22,7 +22,6 @@ public class PersonaController {
 
     public Persona editPersona(@PathVariable Long id,
                                @RequestBody Map<String, String> body) {
-        System.out.println("llegaa");
 
         Persona persona = ipersonaservice.findPersona(id);
 

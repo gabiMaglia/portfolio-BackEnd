@@ -17,19 +17,19 @@ public class SocialMedia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+
     private String facebook;
 
-    @NotNull
-    private String e_mail;
 
-    @NotNull
+    private String gmail;
+
+
     private String instagram;
 
-    @NotNull
+
     private String linkedin;
 
-    @NotNull
+
     private String github;
 
     @NotNull
