@@ -21,12 +21,14 @@ public class MailerController {
     IMailerService mailerService;
 
     @PostMapping("/send_email")
+
     public ResponseEntity<Mailer> createExperience(@RequestBody Mailer email,
                                                     BindingResult bindingResult) throws ValidationException {
         if (bindingResult.hasErrors()){
             throw new ValidationException("Feedback is not valid");
         }
         mailerService.sendMail(email);
+
         return  new ResponseEntity<>(email, HttpStatus.CREATED);
     }
 

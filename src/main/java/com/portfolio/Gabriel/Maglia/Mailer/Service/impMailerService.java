@@ -32,9 +32,9 @@ public class impMailerService implements IMailerService {
 
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo("gab.maglia@gmail.com");
-            helper.setFrom(email.getEmail());
+
             helper.setSubject("Posible contratacion de " + email.getName() + email.getSurname());
-            helper.setText(email.getMensaje());
+            helper.setText(email.getMensaje() + " from address " + email.getEmail());
             mailSender.send(message);
 
 
